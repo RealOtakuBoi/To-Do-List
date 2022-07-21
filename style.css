@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+
+
+:root{
+    --clr-primary: rgb(52,112,199);
+    --clr-light: #f4f4f4;
+    --clr-dark: #333;
+    --clr-warning: rgb(99,36,36);
+}
+
+*::after,
+*::before{
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    background: var(--clr-primary);
+    color: var(--clr-light);
+    display: grid;
+
+    grid:
+    "header header header header" auto
+    "...... lists active ......." auto /
+    1fr minmax(100px, 300px) minmax(250px,500px) 1fr
+}
