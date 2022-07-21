@@ -28,3 +28,67 @@ body{
     "...... lists active ......." auto /
     1fr minmax(100px, 300px) minmax(250px,500px) 1fr
 }
+
+form{
+    display: flex;
+}
+
+.title{
+    grid-area: header;
+    text-align: center;
+    font-size: calc(5vw + 2rem);
+    font-weight: 1200;
+    color: rgba(0,0,0,0.1);
+    letter-spacing: 1px;
+    margin: -0.2em 0 0.5em;
+}
+
+
+.all-tasks{
+    grid-area: lists;
+}
+
+.task-list{
+    line-height: 1.7;
+    font-size: 1.2rem;
+    list-style: circle;
+    padding-left: 1.1rem;
+}
+
+.new{
+    background: transparent;
+    border: 0;
+    color: inherit;
+    border-bottom: 1px solid currentColor;
+    font-size: inherit;
+    outline: none;
+    transition: border-bottom 150ms ease-in;
+    order: 2;
+}
+
+.new::placeholder{
+    opacity: 0.5;
+    color: var(--clr-light);
+}
+
+.new:focus{
+    border-bottom-width: 3px;
+}
+
+.new:focus::placeholder{
+    opacity: 0.2;
+}
+
+.new.list{
+    font-size: 1.1rem;
+}
+
+.active-list{
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.todo-list{
+    grid-area: active;
+}
+
