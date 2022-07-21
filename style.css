@@ -100,6 +100,7 @@ form{
     border: 0;
     color: inherit;
     border-bottom: 1px solid currentColor;
+    padding: 0.25rem;
     font-size: inherit;
     outline: none;
     transition: border-bottom 150ms ease-in;
