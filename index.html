@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>A To Do List of Mine</h1>
+    <h1>Stuff I need to Do</h1>
     <div class="all-tasks">
         <h2 class="task-list-title">My Lists</h2>
         <ul class="task-list">
@@ -22,7 +22,47 @@
             <button class="btn list" aria-label="Create New List">+</button>
         </form>
     </div>
-    <div class="todo-list"></div>
+    <div class="todo-list">
+        <div class="todo-header">
+            <h1 class="list-title">Coding</h1>
+            <p class="task-count">3 Tasks Remaining</p>
+        </div>
+        <div class="todo-body">
+            <div class="tasks">
+                <div class="task">
+                    <input type="checkbox" id="task-1">
+                    <label for="task1">
+                        <span class="custom-checkbox"></span>
+                        Make a Todo List
+                    </label>
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="task-2">
+                    <label for="task2">
+                        <span class="custom-checkbox"></span>
+                        Some Other Task
+                    </label>
+                </div>
+                <div class="task">
+                    <input type="checkbox" id="task-3">
+                    <label for="task3">
+                        <span class="custom-checkbox"></span>
+                        An Another Task
+                    </label>
+                </div>
+            </div>
+            <div class="new-task-creator">
+                <form action="">
+                    <input type="text" class="new task" placeholder="New Task" aria-label="New Task">
+                    <button class="btn task" aria-label="Create Task">+</button>
+                </form>
+            </div>
+            <div class="delete-stuff">
+                <button class="delete task">Clear Completed Tasks</button>
+                <button class="delete task">Clear List</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
