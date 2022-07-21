@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap');
 
 
 :root{
@@ -74,6 +74,14 @@ form{
     padding-left: 1.1rem;
 }
 
+.list-name{
+    cursor: pointer;
+}
+
+.list-name:hover{
+    opacity: 0.7;
+}
+
 .new{
     background: transparent;
     border: 0;
@@ -90,6 +98,10 @@ form{
     color: var(--clr-light);
 }
 
+.new.task::placeholder{
+    color: var(--clr-dark);
+}
+
 .new:focus{
     border-bottom-width: 3px;
 }
@@ -103,11 +115,85 @@ form{
 }
 
 .active-list{
-    font-weight: 700;
+    font-weight: 900;
     letter-spacing: 1px;
 }
 
 .todo-list{
+    --spacer: 2rem;
     grid-area: active;
+    background: var(--clr-light);
+    color: var(--clr-dark);
 }
 
+.todo-header{
+    background: #e4e4e4;
+    padding: var(--spacer);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.list-title{
+    margin: 0 1rem 0 0;
+}
+
+.task-count{
+    margin: 0;
+    font-size: 1rem;
+}
+
+.todo-body{
+    padding: var(--spacer);
+}
+
+.task label{
+    display: flex;
+    align-items: center;
+    margin-right: var(--size);
+    position: relative;
+    margin-bottom: 1.25em;
+}
+
+.task label::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -50%;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.1;
+}
+
+
+[type ="checkbox"]{
+    opacity: 0;
+    position: absolute;
+}
+
+.custom-checkbox{
+    --size: .75em;
+    display: inline-block;
+    width: var(--size);
+    height: var(--size);
+    margin-right: var(--size);
+    cursor: pointer;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: transform 300ms ease-in-out;
+}
+
+.task:hover .custom-checkbox,
+[type ="checkbox"]:focus + label .custom-checkbox{
+    transform: scale(1.1);
+    color: var(--clr-primary);
+}
+
+[type ="checkbox"]:checked + label .custom-checkbox{
+    background-color: var(--clr-primary);
+    border-color: var(--clr-primary);
+    box-shadow: inset 0 0 0 2px white;
+}
