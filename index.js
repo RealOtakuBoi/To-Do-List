@@ -6,6 +6,7 @@ const listDisplayContainer = document.querySelector('[data-list-display-containe
 const listTitleElement = document.querySelector('[data-list-title]');
 const listCountElement = document.querySelector('[data-list-count]');
 const taskContainer = document.querySelector('[data-tasks]');
+const taskTemplate = document.getElementById('task-template');
 
 
 
@@ -72,8 +73,17 @@ function render(){
 }
 
 
-function renderTasks(){
-    
+function renderTasks(seletedList){
+    seletedList.tasks.forEach(task => {
+        const taskElement = document.importNode(taskTemplate.content, true);
+        const checkBox = taskElement.querySelector('input');
+        checkBox.id = task.id;
+        checkBox.checked = task.complete;
+        const label = taskElement.querySelector('label');
+        label.htmlFor = task.id;
+        label.append(task.name);
+        taskContainer.appendChild(taskElement);
+    })
 }
 
 function renderTaskCount(seletedList){
