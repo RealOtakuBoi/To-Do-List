@@ -7,6 +7,8 @@ const listTitleElement = document.querySelector('[data-list-title]');
 const listCountElement = document.querySelector('[data-list-count]');
 const taskContainer = document.querySelector('[data-tasks]');
 const taskTemplate = document.getElementById('task-template');
+const newTaskForm = document.querySelector('[data-new-task-form]');
+const newTaskinput = document.querySelector('[data-new-task-input]')
 
 
 
@@ -35,6 +37,18 @@ newListForm.addEventListener('submit', e => {
     saveAndRender();
 });
 
+
+newTaskForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const taskName = newTaskinput.value;
+    if(taskName == null || taskName === '') return;
+    const task = createTask(taskName);
+    newTaskinput.value = null;
+    const selectedList = lists.find(list => list.id === selectedListId);
+    selectedList.tasks.push(task);
+    saveAndRender();
+});
+
 deleteListButton.addEventListener('click', e => {
     lists = lists.filter(list => list.id !== selectedListId);
     selectedListId = null;
@@ -43,6 +57,10 @@ deleteListButton.addEventListener('click', e => {
 
 function createList(name){
     return {id: Date.now().toString(), name:name,tasks: [] }
+}
+
+function createTask(name){
+    return {id: Date.now().toString(), name:name,complete:false }
 }
 
 function saveAndRender(){
