@@ -26,7 +26,7 @@ body{
     grid:
     "header header header header" auto
     "...... lists active ......." auto /
-    1fr minmax(100px, 300px) minmax(250px,500px) 1fr
+    1fr minmax(100px, 300px) minmax(250px,500px) 1fr;
 }
 
 form{
@@ -260,3 +260,25 @@ form{
     color: var(--clr-light);
 }
 
+
+
+@media only screen and (max-width: 768px){
+
+    body{
+        grid:
+    "header header header header" auto
+    "list list list lists" auto
+    "active active active active " auto /
+    1fr minmax(100px, 300px) minmax(250px,500px) 1fr;
+    }
+
+    .all-tasks{
+        margin-bottom: 40px;
+        margin-right: 50px;
+    }
+
+    .todo-list{
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}
