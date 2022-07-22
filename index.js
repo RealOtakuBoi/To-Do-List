@@ -2,6 +2,11 @@ const listContainer = document.querySelector('[data-lists]');
 const newListForm = document.querySelector('[data-new-list-form]');
 const newListInput = document.querySelector('[data-new-list-input]');
 const deleteListButton = document.querySelector('[data-delete-list-button]');
+const listDisplayContainer = document.querySelector('[data-list-display-container]');
+const listTitleElement = document.querySelector('[data-list-title]');
+const listCountElement = document.querySelector('[data-list-count]');
+const taskContainer = document.querySelector('[data-tasks]');
+
 
 
 const LOCAL_STORAGE_LIST_KEY = 'task.lists';
@@ -51,7 +56,33 @@ function save(){
 
 function render(){
     clearElement(listContainer);
+    renderList();
+    const seletedList = lists.find(list => list.id === selectedListId); 
+    if(selectedListId == null){
+        listDisplayContainer.style.display = 'none';
+    }else{
+        listDisplayContainer.style.display = '';
+        listTitleElement.innerText = seletedList.name;
+        renderTaskCount(seletedList);
+        clearElement(taskContainer);
+        renderTasks(seletedList);
 
+    }
+
+}
+
+
+function renderTasks(){
+    
+}
+
+function renderTaskCount(seletedList){
+    const incompleteTaskCount = seletedList.tasks.filter(task => !task.complete).length;
+    const taskString = incompleteTaskCount === 1 ? 'Task' : 'Tasks';
+    listCountElement.innerText = `${incompleteTaskCount} ${taskString} Remaining`;
+}
+
+function renderList(){
     lists.forEach(list => {
         const listElement = document.createElement('li');
         listElement.dataset.listId = list.id;
