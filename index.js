@@ -26,6 +26,16 @@ listContainer.addEventListener("click", e => {
     }
 })
 
+taskContainer.addEventListener('click', e => {
+    if(e.target.tagName.toLowerCase() === 'input'){
+        const seletedList = lists.find(list => list.id === selectedListId);
+        const selectedTask = seletedList.tasks.find(task => task.id === e.target.id);
+        selectedTask.complete = e.target.checked;
+        save();
+        renderTaskCount(seletedList);
+    }
+})
+
 
 newListForm.addEventListener('submit', e => {
     e.preventDefault();
